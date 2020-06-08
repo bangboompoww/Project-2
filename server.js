@@ -8,6 +8,8 @@ const app = express()
 const db = mongoose.connection
 const session = require('express-session')
 const Notes = require('./models/notes.js')
+const $ = require("jquery");
+
 require('dotenv').config()
 
 //___________________
@@ -64,12 +66,26 @@ app.use('/users', userController)
 const sessionsController = require('./controllers/sessions_controller.js')
 app.use('/sessions', sessionsController)
 //localhost:3000
-app.get('/info', (req, res) => {
-  res.render('index.ejs')
+
+
+
+
+app.get('/notes', (req, res) => {
+  Notes.find({}, (error, allNotes) => {
+    res.render('index.ejs', {
+      notes: allNotes
+      ,currentUser: req.session.currentUser
+    })
+  })
 })
 
-app.get('/notes',(req,res) => {
-    res.render('notes.ejs')
+app.post('/notes', (req, res) => {
+  Notes.create(req.body, (error, createdNote) => {
+  })
+})
+
+app.get('/add', (req,res) => {
+  res.render('add.ejs')
 })
 
 

@@ -3,11 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
     <link rel="stylesheet" href="style.css">
 
+    <script
+    src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
-    
+    <nav>
+    </nav>
+    <main>
+        <a  id="create"  class="waves-effect waves-light btn-large">Add a new sticky</a>
+    </main>
+        <textarea>Type and edit your sticky note</textarea> 
+
+    <script>
+    $("#create").click(function() { 
+        const $body = $("<body></body>")
+        const $text = $("<textarea></textarea>")
+        $('body').append($text);
+     });
+    </script>
+
+       
+ 
+
 </body>
 </html>
