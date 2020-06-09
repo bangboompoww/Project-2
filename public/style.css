@@ -1,61 +1,121 @@
 @import url(https://fonts.googleapis.com/css?family=Gloria+Hallelujah);
 
-.container{
-    top: 100px;
+*{
+    font-family: 'Gloria Hallelujah', cursive;
 }
-body {
-    background-color: lightblue;
+ul{
+  display: flex;
 }
- textarea { 
-  float: left;
-  padding:25px 25px 40px;
-  margin:0 20px 20px 0;
-  width:250px;
-  height:250px; 
+.h1{
+   color: #E85a4F;
+}
+body{
+    background-color: #F3E0DC;
 }
 
-
-/* 
-#create {
-  user-select:none;
-  padding:20px; 
-  border-radius:20px;
-  text-align:center; 
-  border:15px solid rgba(0,0,0,0.1); 
-  cursor:pointer;
-  color:rgba(0,0,0,0.1);
-  font:220px "Helvetica", sans-serif;
-  line-height:185px;
-} */
-
-/* .button {
-    display: inline-block;
-    margin: 0.3em;
-    padding: 1.2em 5em;
-    overflow: hidden;
-    position: relative;
-    text-decoration: none;
-    text-transform: uppercase;
-    border-radius: 3px;
-    transition: 0.3s;
-    border: none; 
+h2{
     font-size: 15px;
-    color: white;
-    text-align: center;
-} */
-
-
-textarea {
-  font:20px 'Gloria Hallelujah', cursive; 
-  line-height:1.5;
-  border:0;
-  margin-top: 50px;
-  border-radius:3px;
-  background: linear-gradient(#F9EFAF, #F7E98D);
-  box-shadow:0 4px 6px rgba(0,0,0,0.1);
-  transition:box-shadow 0.5s ease;
-  max-width:520px;
-  max-height:250px;
 }
-textarea:hover { box-shadow:0 5px 8px rgba(0,0,0,0.15); }
-textarea:focus { box-shadow:0 5px 12px rgba(0,0,0,0.2); outline:none; }
+.mangaimg{
+    height: 50%;
+    width: 60%;
+}
+
+.btn{
+    background-color: #4285f4;
+}
+.btn:hover{
+    background-color: #E85a4F;
+}
+#fixnav{
+    background-color: #5C2018;
+}
+#fixfoot{
+    position: relative;
+    top: 250px;
+    height: 19vh;
+    background-color: #5C2018;
+}
+#newfoot{
+    position: relative;
+    top: 350px;
+    height: 19vh;
+    background-color: #5C2018;
+}
+#editfoot{
+    position: relative;
+    top: 350px;
+    height: 19vh;
+    background-color: #5C2018;
+}
+/* show page */
+.imgfix{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* showpage h3 */
+.showh3{
+    text-align: center;
+}
+
+.pfix{
+    text-align: center;
+    
+}
+
+
+#content {
+    position: relative;
+    z-index: 2;
+    padding: 30px;
+    font-weight: bold;
+}
+.img1{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 50%;
+    height: 100%;
+    
+}
+
+
+
+  .container {
+   
+    display: flex;
+  
+  }
+  .sidebar {
+    width: 50%;
+
+  }
+  .registration {
+    width: 50%;
+ }
+ .loginh1{
+     color: #5C2018;
+ }
+
+ #buttonlogin{
+     background-color: #E85a4F;
+ }
+ #buttonsignup{
+    background-color: #2a1b3D;
+}
+  
+ 
+  a{
+    color: #5C2018;
+  }
+  
+  .a{
+    color: #2a1b3D;
+  }
+  .signuph1{
+    color: #2a1b3D;
+  }
+
+  

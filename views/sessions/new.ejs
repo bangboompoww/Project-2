@@ -10,36 +10,35 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
              
     <link rel="stylesheet" href="/public/style.css">
-    <title>Document</title>
+    <title>1996 collections</title>
 </head>
 <body>
-        <form action="/sessions" method="POST">
-          <div class="row">
-            <div class="col s12 m3 offset-m4">
-              <div class="card">
-                <div class="card-action teal lighten-1 white-text">
-                  <h3>Login</h3>
-                </div>
-                <div class="card-content">
-                  <div class="form-field">
-                    <label for="name">User Name:</label>
-                    <input type="text" name="username" required/>
-                </div><br>
+  <div class="container">
+   <div class="sidebar"></div>
+    <div class="registration">
+      <h1 class="loginh1">Login</h1>
+      <form action="/sessions" method="POST">
+        <div class="row">
+          <div class="card-content">
+            <div class="form-field">
+            <label for="username">USERNAME</label>
+            <input id="username" type="text" placeholder="username" name="username" required/>
+             <label for="password">PASSWORD</label>
+            <input id="password" type="password" placeholder="password" name="password" required>
+        </div>
+              <!-- submit button -->
+        <button id="buttonlogin" class="btn-large waves-effect waves-dark" type="submit" value="Submit" style="width: 100%;">Login</button><br><br>
+        <a href="/users/new">Make new account</a>
+      </form>
+    </div>
+  </div>
+</div>
+ 
+<div id="background">
+  <img class="img1" src="https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700136822.jpg" alt="">
+</div>
 
-                <label for="color">Password:</label>
-            <input type="password" name="password" />
-                <div class="form-field">
-                  <button class="btn-large waves-effect waves-dark" type="submit" value="Submit" style="width: 100%;">Login</button><br><br>
-               <a href="/users/new">Make new account</a>
-              </div><br>
-            </div>
-          
-          
-        </div>
-        </div>
-        </div>
-        <form>
      
-
+  
 </body>
 </html>

@@ -7,11 +7,18 @@ const mongoose = require('mongoose')
 const app = express()
 const db = mongoose.connection
 const session = require('express-session')
-const Notes = require('./models/notes.js')
-const $ = require("jquery");
+const Manga = require('./models/manga.js')
+
 
 require('dotenv').config()
 
+const isAuthinticated = (req, res, next) => {
+  if (req.session.currentUser) {
+    return next()
+  } else {
+    res.redirect('/sessions/new')
+  }
+}
 //___________________
 //Port
 //___________________
@@ -68,26 +75,103 @@ app.use('/sessions', sessionsController)
 //localhost:3000
 
 
+//manga to index route
+app.get('/manga', (req,res) => {
+  Manga.find({}, (error, allMangas) => {
+    res.render(
+      'index.ejs',
+      {
+        mangas: allMangas,
+        currentUser: req.session.currentUser
 
+      }
+      
+      )
+  })
+  
+})
+//seed
+app.get('/finishedManga', async (req, res) => {
+  const newManga =
+    [
+      {
+        title: 'One piece Vol 78',
+        description: 'With the fate of the people of Dressrosa on the line, the Straw Hats and their allies enter the final phase of the battle against the evil Doflamingo family. But when Luffy faces off against the toughest enemy he\s ever met, he\'ll have to reveal a brand-new ability!',
+        img: 'https://images-na.ssl-images-amazon.com/images/I/61q8KZwNvlL._SX331_BO1,204,203,200_.jpg',
 
-app.get('/notes', (req, res) => {
-  Notes.find({}, (error, allNotes) => {
-    res.render('index.ejs', {
-      notes: allNotes
-      ,currentUser: req.session.currentUser
-    })
+      }, {
+        title: 'Death Note, Vol. 1: Boredom',
+        description: 'Light tests the boundaries of the Death Note\'s powers as L and the police begin to close in. Luckily Light\'s father is the head of the Japanese National Police Agency and leaves vital information about the case lying around the house. With access to his father\'s files, Light can keep one step ahead of the authorities. But who is the strange man following him, and how can Light guard against enemies whose names he doesn\'t know?',
+        img: 'https://images-na.ssl-images-amazon.com/images/I/51CWX6wNoaL._SX331_BO1,204,203,200_.jpg',
+       
+      }, {
+        title: 'Code Geass: Lelouch of the Rebellion, Vol. 1',
+        description: 'In the year 2010, the Holy Empire of Brittania declared war on Japan. Powerless to stop them, Japan surrendered in less than a month. Freedom was lost and Japan was renamed "Area 11" and its people became known as "Elevens." Lelouch is a Brittanian and his friend Suzaku, born an eleven, has achieved the status of honorary Brittanian. As a boy Lelouch vowed to crush his own government, but now seven years later and in high school, he\'s accepted that he can\'t change anything. That is until he meets a mysterious girl that gives him the power to control people\'s minds - the power of Geass! He dons a mask and becomes the ruthless terrorist known only as Zero, destroying any who might stand in his path - including his boyhood friend Suzaku!',
+        img: 'https://images-na.ssl-images-amazon.com/images/I/517gIIay53L._SX344_BO1,204,203,200_.jpg',
+      }
+    ]
+
+  try {
+    const seedItems = await Manga.create(newManga)
+    res.send(seedItems)
+  } catch (err) {
+    res.send(err.message)
+  }
+})
+//create
+app.post('/manga', (req,res) => {
+  Manga.create(req.body, (error,createdProduct) => {
+    res.redirect('/manga')
   })
 })
 
-app.post('/notes', (req, res) => {
-  Notes.create(req.body, (error, createdNote) => {
+app.get('/manga/new', (req,res) => {
+  res.render(
+    'new.ejs',
+    {currentUser: req.session.currentUser}
+
+  )
+})
+//read and show
+app.get('/manga/:id', (req,res) => {
+  Manga.findById(req.params.id, (error,theManga) => {
+    res.render(
+      'show.ejs',
+      {
+        mangas: theManga,
+        currentUser: req.session.currentUser
+
+      }
+    )
   })
 })
 
-app.get('/add', (req,res) => {
-  res.render('add.ejs')
+//update and edit
+app.put('/manga/:id', (req,res) => {
+  Manga.findByIdAndUpdate(req.params.id, req.body, (err, updatedManga)=> {
+    res.redirect('/manga')
+})
+})
+app.get('/manga/:id/edit', (req,res) => {
+  Manga.findById(req.params.id, (error, editMangas) => {
+    res.render(
+        'edit.ejs',
+        {
+          manga: editMangas,
+          currentUser: req.session.currentUser
+
+        }
+
+    )
+  })
 })
 
+//delete
+app.delete('/manga/:id', (req,res) => {
+  Manga.findByIdAndRemove(req.params.id, (err,data) => {
+    res.redirect('/manga')
+  })
+})
 
 
 

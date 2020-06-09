@@ -23,16 +23,19 @@ sessions.post('/', (req,res) => {
     User.findOne({username: req.body.username}, (err, userFound) => {
         // if statement to see if there is an error or match at login
         if(err){
-            console.log(err);
+            
             res.send('oops the db had a problem')
         } else if(!userFound) {
+            console.log(req.body.username);
+            console.log(userFound);
+            
             res.send('<a href="/"> Sorry, no user found</a>')
         } else {
             // user is found
             // check to see if passwords match 
             if(bcrypt.compareSync(req.body.password, userFound.password)){
                 req.session.currentUser = userFound
-                res.redirect('/notes')
+                res.redirect('/manga')
             }else{
                //if the password doesnt match
                res.send('<a href="/notes">Sorry password does not match</a>')
@@ -44,8 +47,8 @@ sessions.post('/', (req,res) => {
 
 //this destroys the cookie we created 
 sessions.delete('/', (req,res) => {
-    req.session.destory(() => {
-        res.redirect('/')
+    req.session.destroy(() => {
+    res.redirect('/sessions/new')
     })
 })
 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="stylesheet" href="/public/style.css">
+    <title>1996 collections</title>
+</head>
+<body>
+    <div  class="navbar-fixed">
+        <%- include('./partials/nav.ejs') %>
+      </div>
+
+    <h3 class="showh3" ><%= mangas.title%></h3>
+    <img class="imgfix" src="<%=mangas.img%>" alt=""><br>
+   <p class="pfix">  <%=mangas.description%></p>
+
+   <a href="/manga">Go back to mangas</a>
+
+
+<!-- footer -->
+   <footer id="fixfoot" class="page-footer">
+    <div class="container">
+      <div class="row">
+       
+          <h5  class="white-text">&copy Copyright 2020, 1996 collections</h5>
+          <ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html

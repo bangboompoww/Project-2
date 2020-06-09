@@ -4,33 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <link rel="stylesheet" href="style.css">
-
-    <script
-    src="https://code.jquery.com/jquery-3.5.1.js"
-    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-    crossorigin="anonymous"></script>
-    <title>Document</title>
+    <script src="https://kit.fontawesome.com/e9eb945c7b.js" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="style.css">
+    <title>1996 collections</title>
 </head>
 <body>
-    <nav>
-    </nav>
-    <main>
-        <a  id="create"  class="waves-effect waves-light btn-large">Add a new sticky</a>
-    </main>
-        <textarea>Type and edit your sticky note</textarea> 
+  <!-- partials -->
+  <div  class="navbar-fixed">
+    <%- include('./partials/nav.ejs') %>
+  </div>
 
-    <script>
-    $("#create").click(function() { 
-        const $body = $("<body></body>")
-        const $text = $("<textarea></textarea>")
-        $('body').append($text);
-     });
-    </script>
+<a href="/manga/new">Add a new manga</a>
+ <h4>Feel free to remove any existing mangas</h4>
+      <ul>
+        <% for(let i = 0; i < mangas.length; i++){ %>
+      <li>
+          <h2> <%= mangas[i].title%></h2>
+          <a href="/manga/<%=mangas[i].id %>"><img class="mangaimg"src="<%= mangas[i].img%>" alt=""></a> <br/>
+          <form action="/manga/<%= mangas[i].id %>?_method=DELETE" method="POST">
+          <button class="btn waves-effect waves-light" type="submit" value="DELETE">Delete</button>
+         </form>
+          <a href="/manga/<%= mangas[i].id %>/edit"> Edit </a>
+      </li>
+    <%}%>
+   
+</ul>
+
+<footer id="fixfoot" class="page-footer">
+  <div class="container">
+    <div class="row">
+     
+      
+        <h5  class="white-text">&copy Copyright 2020, 1996 collections</h5>
+        <ul>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  </div>
+</footer>
+
+
+
+
 
        
- 
 
 </body>
 </html>

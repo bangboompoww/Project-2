@@ -8,36 +8,41 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <title>Document</title>
+    <title>1996 collections</title>
 </head>
 <body>
-    
-    
-        <form action="/users" method="POST">
-          <div class="row">
-            <div class="col s12 m3 offset-m4">
-              <div class="card">
-                <div class="card-action teal lighten-1 white-text">
-                  <h3>Sign up</h3>
-                </div>
-                <div class="card-content">
-                  <div class="form-field">
-          <label for="name">User Name:</label>
-          <input type="text" name="username" required/>
-          </div><br>
+  <div class="container">
+    <div class="sidebar"></div>
+    <div class="registration">
+      <h1 class="signuph1">signup</h1>
+      <form action="/users" method="POST">
+        <div class="row">
+          <div class="card-content">
+            <div class="form-field">
+              <label for="username">USERNAME</label>
+            <input id="username" type="text" placeholder="username" name="username" required/>
+            <label for="password">PASSWORD</label>
+            <input id="password" type="password" placeholder="password" name="password" required>
+          
+          </div>
+        <button id="buttonsignup" class="btn-large waves-effect waves-dark" type="submit" value="Submit" style="width: 100%;">signup</button><br><br>
+        <a class="a" href="/sessions/new">Go back to Login</a>
 
-          <label for="password">Password:</label>
-          <input type="password" name="password" />
-          <div class="form-field">
-            <button class="btn-large waves-effect waves-dark" type="submit" value="Submit" style="width: 100%;">Sign Up</button><br><br>
-        </div><br>
-      </div>
+      </form>
     </div>
   </div>
-  </div>
-  <form>
+</div>
+ 
+<div id="background">
+  <img class="img1" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/007ebd6a-6e7f-47a0-8d17-77a93343886e/dbzrr8x-a1d0233b-c109-4a32-8226-942b37456416.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDA3ZWJkNmEtNmU3Zi00N2EwLThkMTctNzdhOTMzNDM4ODZlXC9kYnpycjh4LWExZDAyMzNiLWMxMDktNGEzMi04MjI2LTk0MmIzNzQ1NjQxNi5naWYifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.LvWIo6JIZ2VscjWVe35mIaIT28gk04qm8_FspNgc2Vk" alt="">
+</div>
 
-       
+
+
+
+
+
+    
       
 </body>
 </html>

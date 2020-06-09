@@ -20,7 +20,8 @@ users.post('/', (req,res) => {
     console.log('what it will be encrypted into', req.body.password);
 
     // add users to database
-    User.create(req.body, (createdUser) => {
+    User.create(req.body, (err,createdUser) => {
+        console.log(err);
         console.log('user is created', createdUser);
         res.redirect('/sessions/new')
     })

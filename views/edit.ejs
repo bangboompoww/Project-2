@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="stylesheet" href="/public/style.css">
+    <title>1996 collections</title>
+</head>
+<body>
+    <div  class="navbar-fixed">
+        <%- include('./partials/nav.ejs') %>
+      </div>
+    
+    <h1>Edit your manga</h1>
+    <form action="/manga/<%=manga.id%>?_method=PUT" method="POST">
+      Title: <input type="text" name="title" value="<%=manga.title%>"> <br/>
+      Img: <input type="text" name="img" value="<%=manga.img%>"><br/>
+     Description (optional): <input type="text" name="qty" value="<%=manga.description%>"><br/>
+   <button class="btn waves-effect waves-light" type="submit" value="Submit Changes">Submit Changes</button>
+
+    </form>
+
+
+    <footer id="editfoot" class="page-footer">
+        <div class="container">
+          <div class="row">
+           
+              <h5  class="white-text">&copy Copyright 2020, 1996 collections</h5>
+              <ul>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        
+      </footer>
+    
+</body>
+</html>
