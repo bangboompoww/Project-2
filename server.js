@@ -73,7 +73,9 @@ app.use('/users', userController)
 const sessionsController = require('./controllers/sessions_controller.js')
 app.use('/sessions', sessionsController)
 //localhost:3000
-
+app.get('/', (req,res) => {
+  res.redirect('/sessions/new')
+})
 
 //manga to index route
 app.get('/manga', (req,res) => {
