@@ -23,6 +23,7 @@ const isAuthinticated = (req, res, next) => {
 //Port
 //___________________
 // Allow use of Heroku's port or your own local port, depending on the environment
+const PORT = process.env.PORT || 3003
 //___________________
 //Database
 //___________________
@@ -127,8 +128,7 @@ app.post('/manga', (req,res) => {
 app.get('/manga/new', (req,res) => {
   res.render(
     'new.ejs',
-    {currentUser: req.session.currentUser}
-
+   { currentUser: req.session.currentUser}
   )
 })
 //read and show
@@ -177,6 +177,4 @@ app.delete('/manga/:id', (req,res) => {
 //___________________
 //Listener
 //___________________
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-});
+app.listen(PORT, () => console.log('Listening on port:', PORT))
