@@ -15,6 +15,8 @@ Theres a way to keep memory of all of the manga you have watched! 1996 collectio
 
 **Age**: any age
 
+**User Stories**: To remember all of the manga you have finished, you can with 1996 collections!
+
 
 **Why are they using our app?**
 For people looking to store information of all the mangas they have watched to keep memory
